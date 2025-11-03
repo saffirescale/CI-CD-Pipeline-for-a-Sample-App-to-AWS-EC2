@@ -28,10 +28,10 @@ jobs:
       run: pytest -v
 
     - name: Build Docker image
-      run: docker build -t saffirescale/automated_images .
+      run: docker build -t saffirescale/automated_images:1 .
 
     - name: Log in to Docker Hub
       run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
     - name: Push Docker image to Docker Hub
-      run: docker push saffirescale/automated_images:1.1
+      run: docker push saffirescale/automated_images:1
