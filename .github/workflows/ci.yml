@@ -28,10 +28,10 @@ jobs:
       run: pytest -v
 
     - name: Build Docker image
-      run: docker build -t saffirescale/flask-demo .
+      run: docker build -t saffirescale/automated_images .
 
     - name: Log in to Docker Hub
       run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
     - name: Push Docker image to Docker Hub
-      run: docker push docker push saffirescale/flask-demo:1
+      run: docker push docker push saffirescale/automated_images:flask
